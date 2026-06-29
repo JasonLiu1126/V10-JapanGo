@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>JapanGO V10.5 Smart Guide</title>
+<meta name="theme-color" content="#111827">
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.webmanifest">
+</head>
+<body>
+<header class="hero">
+  <h1>JapanGO V10.5 Smart Guide</h1>
+  <p>電影角色｜今日/明日天氣｜離線AI推薦｜GPS附近｜智慧交通</p>
+</header>
+
+<nav class="topnav">
+  <button onclick="go('home')">首頁</button>
+  <button onclick="go('weatherBox')">天氣</button>
+  <button onclick="go('guide')">推薦</button>
+  <button onclick="go('route')">交通</button>
+  <button onclick="go('days')">行程</button>
+  <button onclick="go('mall')">商場</button>
+  <button onclick="go('lists')">清單</button>
+</nav>
+
+<main class="wrap">
+<section id="home">
+  <h2>首頁</h2>
+  <div class="card">
+    <span class="pill" id="rolePill">角色：Joe Black</span>
+    <span class="pill">V10</span>
+    <h3>操作</h3>
+    <p>用 GPS 或 Demo 區域，再用下拉選單篩選附近推薦。資料內建，不需要 AI API。</p>
+    <div class="btns">
+      <button class="btn ghost avatarBtn" onclick="setRole('Joe Black')"><span class="avatar joe"></span>Joe Black</button>
+      <button class="btn ghost avatarBtn" onclick="setRole('Susan Parrish')"><span class="avatar susan"></span>Susan Parrish</button>
+      <button class="btn ghost avatarBtn" onclick="setRole('小孩')"><span class="avatar kid"></span>Kids</button>
+      <button class="btn map" onclick="locateMe()">更新定位</button>
+      <button class="btn blue" onclick="setDemo('梅田')">Demo梅田</button>
+      <button class="btn blue" onclick="setDemo('銀座')">Demo銀座</button>
+      <button class="btn blue" onclick="setDemo('台場')">Demo台場</button>
+      <button class="btn red" onclick="clearOldCache()">清快取</button>
+    </div>
+    <p id="gpsStatus" class="small">尚未定位。台灣測試建議先用 Demo。</p>
+  </div>
+  <div id="weatherBox"></div>
+  <div id="todayBox"></div>
+</section>
+
+<section id="guide">
+  <h2>🤖 智慧推薦</h2>
+  <div class="filterCard">
+    <label>目前區域</label>
+    <select id="areaSelect" onchange="manualArea(this.value)"><option value="">使用GPS / Demo</option></select>
+    <label>大分類</label>
+    <select id="typeFilter" onchange="renderGuide()">
+      <option value="all">全部</option><option value="shopping">購物</option><option value="food">美食</option><option value="souvenir">伴手禮</option><option value="drugstore">藥妝</option><option value="fashion">服飾</option><option value="beauty">美容</option><option value="kids">小孩</option>
+    </select>
+    <label>細分類</label>
+    <select id="catFilter" onchange="renderGuide()">
+      <option value="all">全部</option><option value="男裝">男裝</option><option value="髮品">髮品</option><option value="男士美容">男士美容</option><option value="美妝">美妝</option><option value="保養">保養</option><option value="飾品">飾品</option><option value="上班休閒">上班休閒</option><option value="玩具">玩具</option><option value="伴手禮">伴手禮</option><option value="藥妝">藥妝</option><option value="甜點">甜點</option><option value="燒肉">燒肉</option><option value="親子快吃">親子快吃</option>
+    </select>
+    <label>排序</label>
+    <select id="sortFilter" onchange="renderGuide()">
+      <option value="ai">AI推薦</option><option value="distance">距離最近</option><option value="score">分數最高</option><option value="limited">日本限定優先</option><option value="today">今天順路</option>
+    </select>
+    <label>搜尋</label>
+    <input id="searchBox" placeholder="ORIHICA / BB / Pokemon / HARBS" oninput="renderGuide()">
+  </div>
+  <div id="guideBox" class="grid"></div>
+</section>
+
+<section id="route"><h2>🚇 智慧交通</h2><div id="routeBox"></div></section>
+<section id="days"><h2>每日行程</h2><div id="daysList"></div></section>
+<section id="mall"><h2>🏬 商場導覽</h2><div class="filterCard"><label>選商場</label><select id="mallSelect" onchange="renderMall()"></select></div><div id="mallBox"></div></section>
+<section id="lists"><h2>清單</h2><div id="listsBox"></div></section>
+</main>
+
+<nav class="bottomnav">
+  <button onclick="go('home')">🏠<br>首頁</button>
+  <button onclick="go('weatherBox')">☁️<br>天氣</button>
+  <button onclick="go('guide')">🤖<br>推薦</button>
+  <button onclick="go('route')">🚇<br>交通</button>
+  <button onclick="go('mall')">🏬<br>商場</button>
+  <button onclick="go('lists')">✅<br>清單</button>
+</nav>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
