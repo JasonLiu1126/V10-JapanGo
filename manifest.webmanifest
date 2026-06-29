@@ -1,7 +1,7 @@
 {
-  "name": "JapanGO V10.5 Smart Guide",
-  "short_name": "JapanGO V10.5",
-  "start_url": "/?v=10.5",
+  "name": "JapanGO V11 Complete Cards",
+  "short_name": "JapanGO V11",
+  "start_url": "/?v=11",
   "display": "standalone",
   "background_color": "#f6f1e8",
   "theme_color": "#111827",

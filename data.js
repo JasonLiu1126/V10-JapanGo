@@ -67,3 +67,25 @@ weatherCities:{
 }
 
 };
+
+
+const PLACE_DB=[
+{id:"hankyu_respire",day:[3,4],time:"住宿",name:"Hotel Hankyu Respire Osaka",type:"hotel",area:"梅田",q:"Hotel Hankyu Respire Osaka",address:"大阪府大阪市北区大深町1-1",phone:"",hours:"入住依飯店規定",site:"https://www.hankyu-hotel.com/hotel/respire/osaka",lat:34.7047,lng:135.4968,note:"梅田核心住宿，去 LUCUA / Grand Front / LaBless 都很順。",img:img("Hotel Hankyu Respire Osaka")},
+{id:"orihica_diamor",day:[3],time:"上午/下午",name:"ORIHICA DIAMOR大阪店",type:"shopping",area:"梅田",q:"ORIHICA DIAMOR大阪店",address:"大阪府大阪市北区梅田1丁目大阪駅前ダイヤモンド地下街",phone:"",hours:"請以官方/Google為準",site:"https://www.orihica.com/",lat:34.6997,lng:135.4975,note:"Joe Black 商務休閒主力：襯衫、Smart Slacks、西裝。",img:img("ORIHICA DIAMOR Osaka")},
+{id:"lucua",day:[3,4],time:"順路",name:"LUCUA Osaka",type:"mall",area:"梅田",q:"LUCUA Osaka",address:"大阪府大阪市北区梅田3丁目1-3",phone:"",hours:"約10:30–20:30，依店鋪不同",site:"https://www.lucua.jp/",lat:34.7046,lng:135.4956,note:"男女服飾、美妝、飾品、餐廳集中。",img:img("LUCUA Osaka shopping")},
+{id:"grandfront",day:[3,4],time:"順路",name:"Grand Front Osaka",type:"mall",area:"梅田",q:"Grand Front Osaka",address:"大阪府大阪市北区大深町4-1",phone:"",hours:"約11:00–21:00，依店鋪不同",site:"https://www.grandfront-osaka.jp/",lat:34.7058,lng:135.4946,note:"LaBless 所在區域，剪髮等待時家人可逛。",img:img("Grand Front Osaka")},
+{id:"labless",day:[3,4],time:"剪頭髮",name:"LaBless ONE＆LaLaBless",type:"hair",area:"梅田",q:"LaBless ONE LaLaBless グランフロント大阪北館 B1F",address:"大阪府大阪市北区大深町3-1 グランフロント大阪北館 B1F",phone:"06-6485-8588",hours:"請以官方/Google為準",site:"https://www.la-bless.com/",lat:34.7064,lng:135.4949,note:"剪頭髮地址已修正：Grand Front Osaka 北館 B1F。",img:img("LaBless ONE LaLaBless Grand Front Osaka")},
+{id:"shinsaibashi",day:[3],time:"晚上",name:"心齋橋 / 道頓堀",type:"shopping",area:"心齋橋",q:"Shinsaibashi Osaka",address:"大阪府大阪市中央区心斎橋筋",phone:"",hours:"依店鋪不同",site:"",lat:34.6737,lng:135.501,note:"晚上逛街、藥妝、UNIQLO/GU、道頓堀拍照。",img:img("Shinsaibashi Dotonbori Osaka")},
+{id:"usj",day:[2],time:"整天",name:"Universal Studios Japan",type:"spot",area:"USJ",q:"Universal Studios Japan",address:"大阪府大阪市此花区桜島2丁目1-33",phone:"",hours:"依日期變動",site:"https://www.usj.co.jp/",lat:34.6654,lng:135.4323,note:"建議早到，任天堂整理券優先。",img:img("Universal Studios Japan Super Nintendo World")},
+{id:"expo",day:[4],time:"下午",name:"萬博公園",type:"spot",area:"萬博公園",q:"Expo '70 Commemorative Park Osaka",address:"大阪府吹田市千里万博公園",phone:"",hours:"依園區公告",site:"https://www.expo70-park.jp/",lat:34.8104,lng:135.532,note:"天氣太熱或下雨可改梅田室內備案。",img:img("Expo 70 Commemorative Park Osaka")},
+{id:"comentoyokohama",day:[5,6,7],time:"住宿",name:"Hotel Comento Yokohama Kannai",type:"hotel",area:"橫濱關內",q:"Hotel Comento Yokohama Kannai",address:"神奈川県横浜市中区不老町2丁目7-2",phone:"",hours:"入住依飯店規定",site:"",lat:35.4412,lng:139.6365,note:"關內住宿，去港未來/中華街都方便。",img:img("Hotel Comento Yokohama Kannai")},
+{id:"cupnoodles",day:[6],time:"白天",name:"杯麵博物館",type:"spot",area:"港未來",q:"Cup Noodles Museum Yokohama",address:"神奈川県横浜市中区新港2丁目3-4",phone:"",hours:"請以官方為準",site:"https://www.cupnoodles-museum.jp/",lat:35.4557,lng:139.6389,note:"親子好玩，建議先看體驗預約。",img:img("Cup Noodles Museum Yokohama")},
+{id:"markis",day:[6],time:"順路",name:"MARK IS 港未來",type:"mall",area:"港未來",q:"MARK IS Minato Mirai",address:"神奈川県横浜市西区みなとみらい3丁目5-1",phone:"",hours:"約10:00–20:00，依店鋪不同",site:"https://www.mec-markis.jp/mm/",lat:35.4579,lng:139.6328,note:"Loft、服飾、餐廳補貨點。",img:img("MARK IS Minato Mirai")},
+{id:"hakkeijima",day:[7],time:"白天",name:"八景島 Sea Paradise",type:"spot",area:"八景島",q:"Yokohama Hakkeijima Sea Paradise",address:"神奈川県横浜市金沢区八景島",phone:"",hours:"依園區公告",site:"https://www.seaparadise.co.jp/",lat:35.3375,lng:139.6466,note:"景點日，交通時間要預留。",img:img("Yokohama Hakkeijima Sea Paradise")},
+{id:"mimaru",day:[8,9,10,11],time:"住宿",name:"MIMARU Tokyo Kinshicho",type:"hotel",area:"錦糸町",q:"MIMARU Tokyo Kinshicho",address:"東京都墨田区江東橋4丁目11-5",phone:"",hours:"入住依飯店規定",site:"https://mimaruhotels.com/",lat:35.6961,lng:139.8157,note:"東京住宿基地，適合家庭。",img:img("MIMARU Tokyo Kinshicho")},
+{id:"asakusa",day:[9],time:"上午",name:"淺草寺 / 淺草碼頭",type:"spot",area:"淺草",q:"Senso-ji Temple Asakusa Pier",address:"東京都台東区浅草",phone:"",hours:"戶外景點",site:"",lat:35.7148,lng:139.7967,note:"10:40 前到碼頭準備 Tokyo Cruise。",img:img("Asakusa Sensoji Tokyo")},
+{id:"divercity",day:[9],time:"下午",name:"DiverCity Tokyo Plaza",type:"mall",area:"台場",q:"DiverCity Tokyo Plaza",address:"東京都江東区青海1丁目1-10",phone:"",hours:"約10:00–21:00，依店鋪不同",site:"https://mitsui-shopping-park.com/divercity-tokyo/",lat:35.6252,lng:139.7757,note:"鋼彈、Food Court、小孩商品。",img:img("DiverCity Tokyo Plaza Gundam")},
+{id:"teamlab",day:[10],time:"上午",name:"teamLab Borderless 麻布台",type:"spot",area:"麻布台",q:"teamLab Borderless Azabudai Hills",address:"東京都港区麻布台1丁目",phone:"",hours:"依票券時間",site:"https://www.teamlab.art/",lat:35.6602,lng:139.7407,note:"熱門景點，照票券時間前往。",img:img("teamLab Borderless Azabudai Hills")},
+{id:"uniqlo_ginza",day:[10],time:"下午/晚上",name:"UNIQLO Ginza",type:"shopping",area:"銀座",q:"UNIQLO Ginza",address:"東京都中央区銀座6丁目9-5",phone:"",hours:"請以Google為準",site:"https://www.uniqlo.com/jp/ja/spl/feature/store/uniqlo-ginza",lat:35.6697,lng:139.7647,note:"銀座收尾，AIRism/感動系列/女裝可補。",img:img("UNIQLO Ginza")}
+];
+

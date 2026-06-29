@@ -1,9 +1,8 @@
-# JapanGO V10.5 Smart Guide
+# JapanGO V11 Complete Cards
 
-更新：
-- Jason 改為 Joe Black，太太改為 Susan Parrish。
-- 角色按鈕加入電影劇照風格小頭像（使用線上縮圖搜尋來源）。
-- 新增今日 / 明日天氣區塊：溫度、降雨機率、濕度。
-- 天氣使用免金鑰即時天氣服務讀取；失敗時顯示夏季參考值。
-- 提供 Google 天氣與 Apple 天氣按鈕，Android/iPhone 都可用。
-- 保留 V10 下拉分類、推薦、收藏、已買、商場、交通。
+修正：
+- 恢復剪頭髮 LaBless 完整地圖連結。
+- 每日行程新增「完整景點卡」：Google Maps / Apple Maps / 地址 / 電話 / 官方網站 / 交通卡。
+- 保留 V10.5 電影角色與今日/明日天氣。
+- LaBless 地址：大阪府大阪市北区大深町3-1 グランフロント大阪北館 B1F。
+- LaBless 電話：06-6485-8588。

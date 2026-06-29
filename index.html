@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>JapanGO V10.5 Smart Guide</title>
+<title>JapanGO V11 Complete Guide</title>
 <meta name="theme-color" content="#111827">
 <link rel="stylesheet" href="style.css">
 <link rel="manifest" href="manifest.webmanifest">
 </head>
 <body>
 <header class="hero">
-  <h1>JapanGO V10.5 Smart Guide</h1>
-  <p>電影角色｜今日/明日天氣｜離線AI推薦｜GPS附近｜智慧交通</p>
+  <h1>JapanGO V11 Complete Guide</h1>
+  <p>完整景點卡｜剪髮地圖恢復｜天氣｜離線AI推薦｜智慧交通</p>
 </header>
 
 <nav class="topnav">
@@ -20,6 +20,7 @@
   <button onclick="go('guide')">推薦</button>
   <button onclick="go('route')">交通</button>
   <button onclick="go('days')">行程</button>
+  <button onclick="go('placecards')">景點卡</button>
   <button onclick="go('mall')">商場</button>
   <button onclick="go('lists')">清單</button>
 </nav>
@@ -73,6 +74,8 @@
 
 <section id="route"><h2>🚇 智慧交通</h2><div id="routeBox"></div></section>
 <section id="days"><h2>每日行程</h2><div id="daysList"></div></section>
+<section id="placecards"><h2>📍每日景點卡</h2><div id="placeCardsBox"></div></section>
+
 <section id="mall"><h2>🏬 商場導覽</h2><div class="filterCard"><label>選商場</label><select id="mallSelect" onchange="renderMall()"></select></div><div id="mallBox"></div></section>
 <section id="lists"><h2>清單</h2><div id="listsBox"></div></section>
 </main>
@@ -82,6 +85,7 @@
   <button onclick="go('weatherBox')">☁️<br>天氣</button>
   <button onclick="go('guide')">🤖<br>推薦</button>
   <button onclick="go('route')">🚇<br>交通</button>
+  <button onclick="go('placecards')">📍<br>景點</button>
   <button onclick="go('mall')">🏬<br>商場</button>
   <button onclick="go('lists')">✅<br>清單</button>
 </nav>
