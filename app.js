@@ -109,12 +109,33 @@ async function loadWeather(){
 function renderToday(){const d=todayDay();document.getElementById("rolePill").textContent="角色："+role;document.getElementById("todayBox").innerHTML=`<div class="card"><img class="photo" src="${d.photo}"><span class="pill">今天：${esc(d.label)}</span><span class="pill">${esc(d.city)}・${esc(d.area)}</span><h3>${esc(d.hotel.name)}</h3><p>${esc(d.next)}</p><ul>${d.plan.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="btns"><button class="btn map" onclick="locateMe()">更新定位</button><button class="btn map" onclick="openLink('${gmap(d.center)}')">今日地圖</button></div><h3>今日地圖快捷</h3><div class="btns">${(d.mapLinks||[]).map(m=>`<button class="btn ghost" onclick="openLink('${gmap(m.q)}')">${esc(m.label)}</button>`).join("")}</div></div>`}
 function renderGuide(){const arr=filteredItems().slice(0,30);document.getElementById("guideBox").innerHTML=arr.length?arr.map(itemCard).join(""):`<div class="empty">沒有符合條件的資料。</div>`}
 function renderRoute(){const d=todayDay();const todays=(typeof PLACE_DB!=="undefined"?PLACE_DB:DATA.destinations).filter(x=>(x.day||[]).includes(d.day));document.getElementById("routeBox").innerHTML=(currentArea?`<div class="aiHero"><h3>目前位置：${esc(currentArea.name)}</h3></div>`:`<div class="aiHero"><h3>先定位或選 Demo 區域</h3></div>`)+`<h3>今天目的地</h3>`+todays.map(routeCard).join("")+`<h3>全部常用目的地</h3>`+DATA.destinations.filter(x=>!todays.includes(x)).map(routeCard).join("")}
-function renderDays(){document.getElementById("daysList").innerHTML=DATA.days.map(d=>`<div class="card"><img class="photo" src="${d.photo}"><span class="pill">Day ${d.day}</span><span class="pill">${esc(d.city)}・${esc(d.area)}</span><h3>${esc(d.label)}｜${esc(d.hotel.name)}</h3><ul>${d.plan.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><p><b>下一步：</b>${esc(d.next)}</p><div class="btns"><button class="btn map" onclick="openLink('${gmap(d.center)}')">今日 Google</button><button class="btn apple" onclick="openLink('${amap(d.center)}')">今日 Apple</button></div></div>`).join("")}
-function renderMall(){const idx=Number(document.getElementById("mallSelect")?.value||0);const m=DATA.malls[idx];document.getElementById("mallBox").innerHTML=`<div class="card"><h3>${esc(m.name)}</h3><span class="pill">${esc(m.area)}</span><div class="btns"><button class="btn map" onclick="openLink('${gmap(m.q)}')">Google</button></div>${m.floors.map(f=>`<div class="mallFloor"><h4>${esc(f.floor)}</h4><ul>${f.items.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`).join("")}</div>`}
-function renderLists(){const bought=getList(boughtKey), fav=getList(favKey);document.getElementById("listsBox").innerHTML=`<div class="card"><h3>已買 ${bought.length} 項</h3><ul>${bought.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><button class="btn red" onclick="localStorage.removeItem('${boughtKey}');renderAll()">清空已買</button></div><div class="card"><h3>收藏 ${fav.length} 項</h3><ul>${fav.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><button class="btn red" onclick="localStorage.removeItem('${favKey}');renderAll()">清空收藏</button></div>`}
-
-function placeForDay(d){
-  return (typeof PLACE_DB!=="undefined"?PLACE_DB:[]).filter(p=>(p.day||[]).includes(d.day));
+function renderDays(){
+  document.getElementById("daysList").innerHTML=DATA.days.map(d=>{
+    const places=(typeof PLACE_DB!=="undefined"?PLACE_DB:[]).filter(p=>(p.day||[]).includes(d.day));
+    const placeButtons=places.length?`
+      <h3>📍今日每一站地圖</h3>
+      <div class="btns">
+        ${places.map(p=>`
+          <button class="btn map" onclick="openLink('${gmap(p.q||p.name)}')">Google｜${esc(p.name)}</button>
+          <button class="btn apple" onclick="openLink('${amap(p.q||p.name)}')">Apple｜${esc(p.name)}</button>
+        `).join("")}
+      </div>
+      <div class="placeFlow">${places.map(p=>`<span>${esc(p.time||"")} ${esc(p.name)}</span>`).join("")}</div>
+    `:"";
+    return `<div class="card">
+      <img class="photo" src="${d.photo}">
+      <span class="pill">Day ${d.day}</span>
+      <span class="pill">${esc(d.city)}・${esc(d.area)}</span>
+      <h3>${esc(d.label)}｜${esc(d.hotel.name)}</h3>
+      <ul>${d.plan.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+      <p><b>下一步：</b>${esc(d.next)}</p>
+      ${placeButtons}
+      <div class="btns">
+        <button class="btn map" onclick="openLink('${gmap(d.center)}')">今日 Google</button>
+        <button class="btn apple" onclick="openLink('${amap(d.center)}')">今日 Apple</button>
+      </div>
+    </div>`;
+  }).join("");
 }
 function placeInfoCard(p){
   return `<div class="card">
